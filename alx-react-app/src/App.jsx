@@ -1,15 +1,14 @@
 import { useState } from 'react';
-// Corrected imports to use the .jsx extension for better compatibility
 import WelcomeMessage from './components/WelcomeMessage.jsx';
 import Header from './components/Header.jsx';
 import MainContent from './components/MainContent.jsx';
 import Footer from './components/Footer.jsx';
+import UserProfile from './components/UserProfile.jsx'; // Task 3: Import UserProfile
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    // This top-level <div> is crucial for proper JSX structure
     <div style={{ 
         maxWidth: '600px', 
         margin: '50px auto', 
@@ -22,10 +21,26 @@ function App() {
       {/* Task 1 Component */}
       <WelcomeMessage /> 
 
-      {/* Task 2 Components - Assembled in the specified order */}
+      {/* Task 2 Components */}
       <Header />
       <MainContent />
-      <Footer />
+      
+      {/* -------------------- */}
+      {/* Task 3 Component - Passing data via props */}
+      <UserProfile 
+        name="Alice" 
+        age="25" 
+        bio="Loves hiking and photography, and is currently learning React components and props at ALX." 
+      />
+      
+      {/* Example of reusing the component with different data */}
+      <UserProfile
+        name="Bob"
+        age="30"
+        bio="A software engineer focused on back-end systems, occasionally exploring frontend development."
+      />
+      {/* -------------------- */}
+
 
       {/* Default Vite/React counter example - Keeping it visible */}
       <div style={{ padding: '20px', textAlign: 'center', backgroundColor: '#eee' }}>
@@ -45,7 +60,9 @@ function App() {
         </button>
       </div>
       
-    </div> // 👈 This closing tag must be here
+      <Footer />
+      
+    </div>
   );
 }
 
