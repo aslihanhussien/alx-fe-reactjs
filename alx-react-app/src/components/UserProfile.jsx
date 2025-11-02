@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-// Destructure the props directly in the function signature for cleaner code
-const UserProfile = ({ name, age, bio }) => {
+// Accept the full 'props' object
+const UserProfile = (props) => {
   // Simple card style for visual appeal
   const cardStyle = {
     padding: '20px',
@@ -25,9 +25,10 @@ const UserProfile = ({ name, age, bio }) => {
 
   return (
     <div style={cardStyle}>
-      <h2 style={nameStyle}>{name}</h2>
-      <p><strong>Age:</strong> {age}</p>
-      <p><strong>Bio:</strong> {bio}</p>
+      {/* ACCESSING PROPS USING DOT NOTATION: props.name, props.age, props.bio */}
+      <h2 style={nameStyle}>{props.name}</h2>
+      <p><strong>Age:</strong> {props.age}</p>
+      <p><strong>Bio:</strong> {props.bio}</p>
     </div>
   );
 };
