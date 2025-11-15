@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useRecipeStore from '../recipeStore';
+import useRecipeStore from './recipeStore';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
@@ -16,12 +16,15 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ 
-      margin: '20px 0', 
-      padding: '20px', 
-      border: '1px solid #ddd',
-      borderRadius: '5px'
-    }}>
+    <form 
+      onSubmit={handleSubmit} 
+      style={{ 
+        margin: '20px 0', 
+        padding: '20px', 
+        border: '1px solid #ddd',
+        borderRadius: '5px'
+      }}
+    >
       <h2>Add a New Recipe</h2>
       <div style={{ marginBottom: '10px' }}>
         <input

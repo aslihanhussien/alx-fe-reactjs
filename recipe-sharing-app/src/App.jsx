@@ -31,3 +31,22 @@ function App() {
 }
 
 export default App;
+```
+
+---
+
+## **Final File Structure**
+```
+recipe-sharing-app/
+├── src/
+│   ├── components/
+│   │   ├── recipeStore.js
+│   │   ├── RecipeList.jsx
+│   │   ├── AddRecipeForm.jsx
+│   │   ├── RecipeDetails.jsx
+│   │   ├── EditRecipeForm.jsx
+│   │   └── DeleteRecipeButton.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── ...
