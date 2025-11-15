@@ -1,16 +1,32 @@
 import { Link } from 'react-router-dom';
-import useRecipeStore from './recipeStore';
+import { useRecipeStore } from './recipeStore';
+import { useEffect } from 'react';
 
 const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+
+  // Initialize filtered recipes on component mount or when recipes change
+  useEffect(() => {
+    filterRecipes();
+  }, [recipes, filterRecipes]);
+
+  // Display filtered recipes if search term exists, otherwise show all recipes
+  const displayRecipes = searchTerm ? filteredRecipes : recipes;
 
   return (
     <div>
       <h2>Recipe List</h2>
-      {recipes.length === 0 ? (
-        <p>No recipes yet. Add one above!</p>
+      {displayRecipes.length === 0 ? (
+        <p>
+          {searchTerm 
+            ? `No recipes found matching "${searchTerm}"`
+            : 'No recipes yet. Add one above!'}
+        </p>
       ) : (
-        recipes.map((recipe) => (
+        displayRecipes.map((recipe) => (
           <div 
             key={recipe.id} 
             style={{ 
@@ -39,6 +55,16 @@ const RecipeList = () => {
             </Link>
           </div>
         ))
+      )}
+      
+      {searchTerm && displayRecipes.length > 0 && (
+        <p style={{ 
+          marginTop: '20px', 
+          fontStyle: 'italic',
+          color: '#666'
+        }}>
+          Showing {displayRecipes.length} recipe(s) matching "{searchTerm}"
+        </p>
       )}
     </div>
   );
