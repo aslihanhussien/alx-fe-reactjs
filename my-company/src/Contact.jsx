@@ -57,17 +57,11 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Custom success message logic (instead of the forbidden alert())
     if (!formData.name || !formData.email || !formData.message) {
-      setSubmissionMessage({ type: 'error', text: 'Please fill in all fields before submitting.' });
+      setSubmissionMessage({ type: 'error', text: 'Please fill in all fields.' });
       return;
     }
-
-    setSubmissionMessage({ type: 'success', text: `Thank you, ${formData.name}! Your message has been received.` });
-    console.log("Form Submitted:", formData);
-    
-    // Reset form after submission
+    setSubmissionMessage({ type: 'success', text: `Message received from ${formData.name}.` });
     setFormData({ name: '', email: '', message: '' });
   };
   
@@ -75,12 +69,11 @@ export default function Contact() {
     ...styles.messageBox,
     backgroundColor: type === 'success' ? '#d4edda' : '#f8d7da',
     color: type === 'success' ? '#155724' : '#721c24',
-    border: type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb',
   });
 
   return (
     <div style={styles.pageContent}>
-      <h1 style={{ color: '#dc3545', marginBottom: '15px' }}>Get in Touch</h1>
+      <h1 style={{ color: '#dc3545', marginBottom: '15px' }}>Contact Us</h1>
       {submissionMessage && <div style={getMessageStyle(submissionMessage.type)}>{submissionMessage.text}</div>}
       <form onSubmit={handleSubmit} style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px' }}>
         <input
@@ -106,7 +99,7 @@ export default function Contact() {
           onChange={handleChange}
           style={styles.formTextarea}
         />
-        <button type="submit" style={styles.submitButton} onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0056b3'} onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#007bff'}>Send Message</button>
+        <button type="submit" style={styles.submitButton}>Send Message</button>
       </form>
     </div>
   );

@@ -12,8 +12,8 @@ const styles = {
 export default function Home() {
   return (
     <div style={styles.pageContent}>
-      <h1 style={{ color: '#007bff', marginBottom: '15px' }}>Welcome to Our Digital Company</h1>
-      <p style={{ lineHeight: '1.6' }}>We are dedicated to delivering excellence in digital transformation, innovation, and strategic consulting for businesses worldwide. Start your future with us today.</p>
+      <h1 style={{ color: '#007bff', marginBottom: '15px' }}>Welcome to Our Company</h1>
+      <p style={{ lineHeight: '1.6' }}>We are dedicated to delivering excellence in all our services.</p>
     </div>
   );
 }

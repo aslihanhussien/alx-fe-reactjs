@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// These imports MUST match the file names exactly (Navbar.jsx, Home.jsx, etc.)
 import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
@@ -28,14 +27,12 @@ const styles = {
   }
 };
 
-// --- Footer Component (Extra Feature) ---
 const Footer = () => (
   <footer style={styles.footer}>
-    &copy; {new Date().getFullYear()} My Company, Inc. All rights reserved. | Built with React
+    &copy; {new Date().getFullYear()} My Company, Inc. All rights reserved.
   </footer>
 );
 
-// --- Main App Component (Implements Routing) ---
 export default function App() {
   return (
     <BrowserRouter>
