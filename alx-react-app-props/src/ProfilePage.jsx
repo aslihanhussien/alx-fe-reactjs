@@ -1,4 +1,3 @@
-// START ProfilePage.jsx
 import React from 'react';
 import UserInfo from './UserInfo';
 
@@ -7,4 +6,3 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
-// END ProfilePage.jsx

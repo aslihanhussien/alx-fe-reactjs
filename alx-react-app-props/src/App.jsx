@@ -1,4 +1,3 @@
-// START App.jsx
 import React from 'react';
 import ProfilePage from './ProfilePage';
 import UserContext from './UserContext'; 
@@ -8,10 +7,9 @@ function App() {
 
   return (
     <UserContext.Provider value={userData}>
-      <ProfilePage /> 
+      <ProfilePage />
     </UserContext.Provider>
   );
 }
 
 export default App;
-// END App.jsx
