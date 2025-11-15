@@ -1,9 +1,10 @@
-// START UserDetails.jsx
 import React, { useContext } from 'react';
 import UserContext from './UserContext';
 
 function UserDetails() {
   const userData = useContext(UserContext);
+
+  if (!userData) return null;
 
   return (
     <div>
@@ -14,4 +15,3 @@ function UserDetails() {
 }
 
 export default UserDetails;
-// END UserDetails.jsx
