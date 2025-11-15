@@ -1,3 +1,4 @@
+// START UserDetails.jsx
 import React, { useContext } from 'react';
 import UserContext from './UserContext';
 
@@ -13,3 +14,4 @@ function UserDetails() {
 }
 
 export default UserDetails;
+// END UserDetails.jsx
