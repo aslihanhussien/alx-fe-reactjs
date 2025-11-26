@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import './App.css';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       </header>
       
       <main>
-        <p>Application is ready for development!</p>
+        <Search />
       </main>
     </div>
   );
