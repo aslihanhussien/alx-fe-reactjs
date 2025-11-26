@@ -38,7 +38,7 @@ export const searchUsers = async (searchParams) => {
     }
     
     const response = await axios.get(
-      `${BASE_URL}/search/users?q=${query}&page=${page}&per_page=10`
+      `https://api.github.com/search/users?q=${query}&page=${page}&per_page=10`
     );
     
     return response.data;
