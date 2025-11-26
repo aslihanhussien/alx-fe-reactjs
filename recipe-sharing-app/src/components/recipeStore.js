@@ -41,14 +41,13 @@ const useRecipeStore = create((set) => ({
   })),
   
   generateRecommendations: () => set((state) => {
-    // Generate recommendations based on favorites
-    // This is a mock implementation - in a real app, you might use more sophisticated logic
     const recommended = state.recipes.filter((recipe) =>
       !state.favorites.includes(recipe.id) && Math.random() > 0.5
-    ).slice(0, 3); // Limit to 3 recommendations
+    ).slice(0, 3);
     
     return { recommendations: recommended };
   })
 }));
 
+export { useRecipeStore };
 export default useRecipeStore;
