@@ -6,43 +6,41 @@ function RegistrationForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  const validateForm = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
     const newErrors = {};
 
-    if (!username.trim()) {
+    if (!username) {
       newErrors.username = 'Username is required';
     }
 
-    if (!email.trim()) {
+    if (!email) {
       newErrors.email = 'Email is required';
     }
 
-    if (!password.trim()) {
+    if (!password) {
       newErrors.password = 'Password is required';
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (validateForm()) {
-      const userData = { username, email, password };
-      console.log('Form submitted:', userData);
-      alert('Registration successful!');
-
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      setErrors({});
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
     }
+
+    const userData = { username, email, password };
+    console.log('Form submitted:', userData);
+    alert('Registration successful!');
+
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setErrors({});
   };
 
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px' }}>
-      <h2>User Registration (Controlled Components)</h2>
+      <h2>User Registration</h2>
       
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '15px' }}>
@@ -52,6 +50,7 @@ function RegistrationForm() {
           <input
             type="text"
             id="username"
+            name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             style={{
@@ -75,6 +74,7 @@ function RegistrationForm() {
           <input
             type="email"
             id="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={{
@@ -98,6 +98,7 @@ function RegistrationForm() {
           <input
             type="password"
             id="password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{

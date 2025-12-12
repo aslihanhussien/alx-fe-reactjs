@@ -1,6 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+const validationSchema = Yup.object({
+  username: Yup.string().required('Username is required'),
+  email: Yup.string().email('Invalid email address').required('Email is required'),
+  password: Yup.string().required('Password is required')
+});
+
 function FormikForm() {
   const initialValues = {
     username: '',
@@ -8,25 +14,11 @@ function FormikForm() {
     password: ''
   };
 
-  const validationSchema = Yup.object({
-    username: Yup.string()
-      .required('Username is required')
-      .min(3, 'Username must be at least 3 characters'),
-    email: Yup.string()
-      .email('Invalid email format')
-      .required('Email is required'),
-    password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters')
-  });
-
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    setTimeout(() => {
-      console.log('Form submitted:', values);
-      alert('Registration successful with Formik!');
-      resetForm();
-      setSubmitting(false);
-    }, 1000);
+    console.log('Form submitted:', values);
+    alert('User registered successfully!');
+    resetForm();
+    setSubmitting(false);
   };
 
   return (
@@ -57,7 +49,7 @@ function FormikForm() {
               />
               <ErrorMessage
                 name="username"
-                component="p"
+                component="div"
                 style={{ color: 'red', fontSize: '14px', margin: '5px 0 0 0' }}
               />
             </div>
@@ -79,7 +71,7 @@ function FormikForm() {
               />
               <ErrorMessage
                 name="email"
-                component="p"
+                component="div"
                 style={{ color: 'red', fontSize: '14px', margin: '5px 0 0 0' }}
               />
             </div>
@@ -101,7 +93,7 @@ function FormikForm() {
               />
               <ErrorMessage
                 name="password"
-                component="p"
+                component="div"
                 style={{ color: 'red', fontSize: '14px', margin: '5px 0 0 0' }}
               />
             </div>
