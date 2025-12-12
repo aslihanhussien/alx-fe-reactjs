@@ -1,5 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import ProfileDetails from './Profile/ProfileDetails';
+import ProfileSettings from './Profile/ProfileSettings';
 
 function Profile() {
   const { logout } = useAuth();
@@ -13,7 +15,11 @@ function Profile() {
       </nav>
       <button onClick={logout}>Logout</button>
       <hr />
-      <Outlet />
+      
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 }

@@ -4,8 +4,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './components/Home';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import ProfileDetails from './components/Profile/ProfileDetails';
-import ProfileSettings from './components/Profile/ProfileSettings';
 import BlogPost from './components/BlogPost';
 
 function App() {
@@ -25,16 +23,13 @@ function App() {
             <Route path="/blog/:id" element={<BlogPost />} />
             
             <Route 
-              path="/profile" 
+              path="/profile/*" 
               element={
                 <ProtectedRoute>
                   <Profile />
                 </ProtectedRoute>
               }
-            >
-              <Route path="details" element={<ProfileDetails />} />
-              <Route path="settings" element={<ProfileSettings />} />
-            </Route>
+            />
           </Routes>
         </div>
       </Router>
