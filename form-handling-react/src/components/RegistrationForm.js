@@ -1,3 +1,4 @@
+// Registration form component
 import { useState } from 'react';
 
 function RegistrationForm() {
